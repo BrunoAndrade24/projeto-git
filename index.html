@@ -1,20 +1,322 @@
-<!DOCTYPE html> 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Website</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1>"Hello World"sdsd</h1>
-        <p>Erro</p>
-        <h2>teste2</h2>
-        <h3>teste3</h3>
-        <h1>er</h1>
-        <p>comando pela consola </p>
-        <p>teste</p>
-        <p>Boas</p>
-        <p>teste222 olá porto</p>
-    </body>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apresentação Pessoal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #080b14;
+    color: white;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    min-height: 100vh;
+    padding: 10vh 12%;
+    flex-direction: column;
+    justify-content: center;
+    animation: aparecer .6s ease;
+}
+
+.slide.active {
+    display: flex;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tag {
+    color: #8b9cff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    margin-bottom: 35px;
+}
+
+p {
+    color: #aab1c5;
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 750px;
+}
+
+.highlight {
+    color: #8798ff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 850px;
+}
+
+.card {
+    background: #121827;
+    border: 1px solid #273149;
+    padding: 28px;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #8798ff;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.card p {
+    font-size: 15px;
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.controls {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    background: #8798ff;
+    color: #080b14;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+}
+
+#counter {
+    color: #8992a9;
+    font-size: 14px;
+}
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #8798ff;
+    transition: width .3s;
+}
+
+footer {
+    position: fixed;
+    bottom: 32px;
+    left: 40px;
+    color: #69738d;
+    font-size: 13px;
+}
+
+@media(max-width: 650px) {
+    .slide { padding: 8vh 7%; }
+    .grid { grid-template-columns: 1fr; gap: 12px; }
+    .card { padding: 18px; }
+    footer { display: none; }
+    .controls { right: 15px; bottom: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 1 -->
+<section class="slide active">
+    <div class="tag">Apresentação pessoal</div>
+    <h1>Olá, sou o <span class="highlight">Bruno</span>.</h1>
+    <p>Uma pessoa curiosa, com interesse pela tecnologia, inovação e pelo desenvolvimento de novas ideias.</p>
+    <p style="margin-top:35px;color:#68738e;">01 — Introdução</p>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide">
+    <div class="tag">01 / Sobre mim</div>
+    <h2>Um pouco sobre <span class="highlight">mim.</span></h2>
+    <p>
+        Gosto de aprender coisas novas, explorar diferentes áreas
+        e perceber como funcionam as tecnologias que fazem parte
+        do nosso dia a dia.
+        <br><br>
+        Sou uma pessoa prática, curiosa e gosto de encontrar
+        soluções para problemas.
+    </p>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide">
+    <div class="tag">02 / Interesses</div>
+    <h2>O que me <span class="highlight">interessa.</span></h2>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Tecnologia</h3>
+            <p>Hardware, computadores e novas tecnologias.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>Inteligência Artificial</h3>
+            <p>Automação, ferramentas inteligentes e inovação.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Programação</h3>
+            <p>Desenvolvimento web e criação de projetos digitais.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Gaming</h3>
+            <p>Jogos de estratégia, progressão e competição.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide">
+    <div class="tag">03 / Competências</div>
+    <h2>O que gosto de <span class="highlight">fazer.</span></h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>🔧 Resolver problemas</h3>
+            <p>Diagnosticar problemas técnicos e procurar soluções.</p>
+        </div>
+
+        <div class="card">
+            <h3>🖥️ Criar projetos</h3>
+            <p>Explorar programação e desenvolver ideias digitais.</p>
+        </div>
+
+        <div class="card">
+            <h3>📚 Aprender</h3>
+            <p>Adquirir conhecimentos e experimentar ferramentas novas.</p>
+        </div>
+
+        <div class="card">
+            <h3>💡 Inovar</h3>
+            <p>Encontrar formas diferentes de melhorar processos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide">
+    <div class="tag">04 / Objetivos</div>
+    <h2>Sempre a <span class="highlight">evoluir.</span></h2>
+
+    <p>
+        Quero continuar a desenvolver as minhas competências
+        na área tecnológica, aprofundar os meus conhecimentos
+        em programação e inteligência artificial e participar
+        em projetos que tenham impacto real.
+        <br><br>
+        Acredito que aprender, experimentar e adaptar são
+        fundamentais para acompanhar a evolução do mundo.
+    </p>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="slide">
+    <div class="tag">05 / Conclusão</div>
+    <h1>O futuro é <span class="highlight">construído.</span></h1>
+    <p>
+        Tenho curiosidade pelo que ainda está por descobrir
+        e vontade de continuar a aprender e evoluir.
+        <br><br>
+        Obrigado pela atenção!
+    </p>
+</section>
+
+<footer>APRESENTAÇÃO PESSOAL · 2026</footer>
+
+<div class="controls">
+    <span id="counter">1 / 6</span>
+    <button onclick="changeSlide(-1)">←</button>
+    <button onclick="changeSlide(1)">→</button>
+</div>
+
+<script>
+let current = 0;
+
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+
+function updateSlide() {
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === current);
+    });
+
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    progress.style.width =
+        `${((current + 1) / slides.length) * 100}%`;
+}
+
+function changeSlide(direction) {
+    current += direction;
+
+    if (current < 0) current = 0;
+    if (current >= slides.length) current = slides.length - 1;
+
+    updateSlide();
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' || event.key === ' ') {
+        changeSlide(1);
+    }
+
+    if (event.key === 'ArrowLeft') {
+        changeSlide(-1);
+    }
+});
+
+updateSlide();
+</script>
+
+</body>
 </html>
